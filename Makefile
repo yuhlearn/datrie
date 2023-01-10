@@ -1,5 +1,5 @@
 CC := gcc
-CC_FLAGS := -Wall -Wextra 
+std=c99 -pedantic -Wall -Wextra -O3 -D_POSIX_C_SOURCE=200112L
 
 SRC := src
 INC := include
@@ -15,8 +15,8 @@ MAIN_OBJECTS := $(patsubst $(SRC)/%,$(BUILD)/%,$(MAIN_SOURCES:.$(SRCEXT)=.o))
 TEST_SOURCES := $(patsubst $(SRC)/%main.$(SRCEXT),, $(SOURCES))
 TEST_OBJECTS := $(patsubst $(SRC)/%,$(BUILD)/%,$(TEST_SOURCES:.$(SRCEXT)=.o))
 
-MAIN_LIBRARIES := 
-TEST_LIBRARIES := -lcunit
+MAIN_LIBRARIES := -lreadline -lncurses
+TEST_LIBRARIES := $(MAIN_LIBRARIES) -lcunit
 INCLUDES := -I $(SRC) -I $(INC)
 
 all: main
@@ -36,7 +36,7 @@ $(BUILD)/%.o: $(SRC)/%.$(SRCEXT)
 	$(CC) $(CC_FLAGS) $(INCLUDES) -c -o $@ $<
 
 clean:
-	$(RM) -r $(BUILD)
+	$(RM) -r $(BUILD)/*
 	$(RM) -r $(BIN)/*
 
 .PHONY: clean
