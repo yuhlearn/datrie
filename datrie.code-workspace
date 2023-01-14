@@ -4,5 +4,21 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"cmath": "c",
+			"compare": "c",
+			"concepts": "c",
+			"cstdarg": "c",
+			"cstdio": "c",
+			"cstdlib": "c",
+			"exception": "c",
+			"type_traits": "c",
+			"limits": "c",
+			"new": "c",
+			"*.tcc": "c",
+			"cstdint": "c",
+			"typeinfo": "c"
+		}
+	}
 }
