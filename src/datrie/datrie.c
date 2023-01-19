@@ -205,30 +205,6 @@ static void datrie_ensure_capacity(DATrie *datrie,
         memset(&datrie->tail[old_capacity], 0, sizeof(uint8_t *) * old_capacity);
 
         datrie->capacity = new_capacity;
-
-        /*
-        printf("entry:\t");
-        for (int i = 0; i < new_capacity; i++)
-            printf("%d\t", i);
-        printf("\n");
-
-        printf("base:\t");
-        for (int i = 0; i < new_capacity; i++)
-            printf("%d\t", datrie->base[i]);
-        printf("\n");
-
-        printf("check:\t");
-        for (int i = 0; i < new_capacity; i++)
-            printf("%d\t", datrie->check[i]);
-        printf("\n");
-
-        printf("tail:\t");
-        for (int i = 0; i < new_capacity; i++)
-            printf("%d\t", ((datrie->tail[i] == NULL) ? 0 : 1));
-        printf("\n");
-
-        exit(0);
-        */
     }
 
     datrie_extend_glink(datrie, state + 1);

@@ -29,8 +29,6 @@ void datrie_test()
         datrie_insert(&datrie, line);
         int found = datrie_find(&datrie, line);
         CU_ASSERT_TRUE(found);
-        if (!found)
-            printf("%s\n", line);
         count++;
     }
 
